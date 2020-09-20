@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" x:Class="NewControlsDemo.Views.ImgTransformPage" xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations" ios:Page.UseSafeArea="True" Padding="{StaticResource SafeAreaPadding}">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0" Margin="0">
+            <StackLayout HorizontalOptions="FillAndExpand" Margin="15" Orientation="Horizontal">
+                <ImageButton Source="back" Grid.Column="0" HeightRequest="20" WidthRequest="25" HorizontalOptions="Start"
+                         BackgroundColor="Transparent" 
+                         Command="{Binding BackClickCommand}"/>
+                <Label Grid.Column="1" Text="Image Transformation" FontSize="Title" HorizontalTextAlignment="Center" HorizontalOptions="Center"
+                       VerticalTextAlignment="Center"/>
+            </StackLayout>
+            <Grid IsClippedToBounds="True" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0" >
+                <!--<Image Source="{Binding ImageUrl}" BackgroundColor="Red" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="200" WidthRequest="200" Aspect="AspectFit"/>-->
+                <ffimageloading:CachedImage Grid.Row="0" Source="{Binding ImageUrl}" Scale="8" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" >
+                    <ffimageloading:CachedImage.Transformations>
+                        <fftransformations:BlurredTransformation />
+                    </ffimageloading:CachedImage.Transformations>
+                </ffimageloading:CachedImage>
+
+                <ffimageloading:CachedImage Source="{Binding ImageUrl}" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center">
+                    <ffimageloading:CachedImage.Transformations>
+                        <fftransformations:CircleTransformation />
+                    </ffimageloading:CachedImage.Transformations>
+                </ffimageloading:CachedImage>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

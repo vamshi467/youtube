@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NewControlsDemo.Views.SwipeViewPage"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True" Padding="{StaticResource SafeAreaPadding}">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0" Spacing="0">
+            <ImageButton Source="back" HeightRequest="20" WidthRequest="25" HorizontalOptions="Start"
+                         BackgroundColor="Transparent" Margin="15"
+                         Command="{Binding BackClickCommand}"/>
+
+            <!--ExecuteMode Sample-->
+            <SwipeView Margin="15" HorizontalOptions="FillAndExpand">
+                <SwipeView.LeftItems>
+                    <SwipeItems Mode="Execute">
+                        <SwipeItem Text="Subscribe"
+                              BackgroundColor="LightYellow"
+                              Invoked="SwipeItem_Invoked">
+                        </SwipeItem>
+                    </SwipeItems>
+                </SwipeView.LeftItems>
+                <Frame BackgroundColor="Orange" HasShadow="False" IsClippedToBounds="True" BorderColor="AliceBlue"
+                   CornerRadius="25" Margin="10">
+                    <StackLayout>
+                        <Label Text="Swipe from left" HorizontalTextAlignment="Center" FontSize="Title"/>
+                        <Label Text="Swipe demo" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </Frame>
+            </SwipeView>
+
+            <SwipeView Margin="15" HorizontalOptions="FillAndExpand">
+                <SwipeView.RightItems>
+                    <SwipeItems Mode="Reveal">
+                        <SwipeItem Text="Subscribe"
+                              BackgroundColor="LightYellow"
+                              Invoked="SwipeItem_Reveled">
+                        </SwipeItem>
+                    </SwipeItems>
+                </SwipeView.RightItems>
+                <Frame BackgroundColor="OrangeRed" IsClippedToBounds="True" BorderColor="AliceBlue"
+                   CornerRadius="25" HasShadow="False" Margin="10">
+                    <StackLayout>
+                        <Label Text="Swipe from right" HorizontalTextAlignment="Center" FontSize="Title"/>
+                        <Label Text="Swipe demo" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </Frame>
+            </SwipeView>
+
+            <SwipeView Margin="15" HorizontalOptions="FillAndExpand">
+                <SwipeView.TopItems>
+                    <SwipeItems Mode="Reveal" SwipeBehaviorOnInvoked="Auto">
+                        <SwipeItem Text="Subscribe"
+                              BackgroundColor="LightYellow"
+                              Invoked="SwipeItem_Reveled">
+                        </SwipeItem>
+                    </SwipeItems>
+                </SwipeView.TopItems>
+                <Frame BackgroundColor="DarkOrange" IsClippedToBounds="True" BorderColor="AliceBlue"
+                   CornerRadius="25" HasShadow="False" Margin="10">
+                    <StackLayout>
+                        <Label Text="Swipe from Top" HorizontalTextAlignment="Center" FontSize="Title"/>
+                        <Label Text="Swipe demo" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </Frame>
+            </SwipeView>
+
+             <SwipeView Margin="15" HorizontalOptions="FillAndExpand">
+                <SwipeView.BottomItems>
+                    <SwipeItems Mode="Reveal" SwipeBehaviorOnInvoked="Auto">
+                        <SwipeItem Text="Subscribe"
+                              BackgroundColor="LightYellow"
+                              Invoked="SwipeItem_Reveled">
+                        </SwipeItem>
+                    </SwipeItems>
+                </SwipeView.BottomItems>
+                <Frame BackgroundColor="DarkOliveGreen" IsClippedToBounds="True" BorderColor="AliceBlue"
+                   CornerRadius="25" HasShadow="False" Margin="10">
+                    <StackLayout>
+                        <Label Text="Swipe from Bottom" HorizontalTextAlignment="Center" FontSize="Title"/>
+                        <Label Text="Swipe demo" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </Frame>
+            </SwipeView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
