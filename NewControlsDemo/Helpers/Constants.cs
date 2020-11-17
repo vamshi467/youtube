@@ -4,6 +4,7 @@ namespace NewControlsDemo.Helpers
     public class Constants
     {
 
+      // keys from google developer console
         public const string ApiKey = "AIzaSyD9ZBuNBA8zBwau6BrcLXC-AACwySPteO8";//AIzaSyAsSYiKNRx86JoYt1cEvRXVed0N-T-du5o  //AIzaSyD9ZBuNBA8zBwau6BrcLXC-AACwySPteO8
 
         public const string AndroidGoogleId = "607076773113-n8eg56mhtagna0bsgh500mqvu5dvoatu.apps.googleusercontent.com";
