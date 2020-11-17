@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NewControlsDemo.Views.VideoStreamPage"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:shared="clr-namespace:LibVLCSharp.Forms.Shared;assembly=LibVLCSharp.Forms"
+             ios:Page.UseSafeArea="True"
+             Padding="{StaticResource SafeAreaPadding}"
+             BackgroundColor="AliceBlue"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+
+        <Grid Padding="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <MediaElement Grid.Row="0" 
+                              x:Name="MyMediaElement"
+                              ShowsPlaybackControls="True" />
+            <ImageButton VerticalOptions="StartAndExpand"
+                             HorizontalOptions="StartAndExpand"
+                             Margin="20"
+                             x:Name="CloseButton"
+                             Clicked="CloseButton_Clicked"
+                             Source="back"
+                             BackgroundColor="Transparent"
+                             HeightRequest="20" WidthRequest="20"/>
+
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                        mc:Ignorable="d"
+                        x:Class="NewControlsDemo.App"
+                        xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms" xmlns:Converters="clr-namespace:NewControlsDemo.Converters">
+    <Application.Resources>
+
+        <!-- View Margin Padding-->
+        <OnPlatform x:Key="SafeAreaPadding" x:TypeArguments="Thickness" Android="0" iOS="0" />
+
+        <!--  Converters -->
+        
+        <Converters:RelativeDateTimeConvertor x:Key="relativeDateTimeConvertor" />
+
+        <Color x:Key="BlackColor">#161719</Color>
+        <Color x:Key="WhiteSmokeColor">#F5F5F5</Color>
+        <Color x:Key="OrangeColor">#F07F3D</Color>
+        <Color x:Key="DarkOrangeColor">#F24F4D</Color>
+        <Color x:Key="OrangeRedColor">#ED7C4E</Color>
+        <Color x:Key="FooterLableColor">#8F97A2</Color>
+        <Color x:Key="DarkGrayColor">#414141</Color>
+
+        <!--Label Style-->
+        <Style x:Key="RobotoRegularSize17LabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="17" />
+            <Setter Property="FontFamily" Value="RobotoRegular" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+        </Style>
+
+        <Style x:Key="RobotoRegularSize16LabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontFamily" Value="RobotoRegular" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+        </Style>
+
+        <!--Frame Style-->
+        <Style x:Key="ImageFrameStyle" TargetType="Frame">
+            <Setter Property="HasShadow" Value="False" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="IsClippedToBounds" Value="True" />
+            <Setter Property="CornerRadius" Value="5" />
+        </Style>
+
+        <Style x:Key="LoginFrameStyle" TargetType="Frame">
+            <Setter Property="HasShadow" Value="False" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="40,0" />
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="IsClippedToBounds" Value="True" />
+            <Setter Property="HeightRequest" Value="50" />
+        </Style>
+
+        <Style x:Key="LoginOptionsIconsStyle" TargetType="Image">
+            <Setter Property="HeightRequest" Value="18" />
+            <Setter Property="WidthRequest" Value="18" />
+            <Setter Property="Aspect" Value="AspectFit" />
+        </Style>
+
+
+    </Application.Resources>
+</prism:PrismApplication>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NewControlsDemo.Views.YouTubePlaylistPage"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             ios:Page.UseSafeArea="True"
+             Padding="{StaticResource SafeAreaPadding}"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="AliceBlue">
+    <ContentPage.Content>
+        <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
+            <Grid Padding="0" Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.ColumnSpan="2" Text="YT Player" TextColor="Black" FontSize="22" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <ImageButton Grid.Column="1" Source="logout_icon" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand" VerticalOptions="Center"
+                         BackgroundColor="Transparent" Margin="15"
+                         Command="{Binding LogoutCommand}"/>
+            </Grid>
+
+            <flv:FlowListView x:Name="videosListView" BackgroundColor="AliceBlue" FlowItemsSource="{Binding YoutubeItems}" FlowColumnCount="1" HasUnevenRows="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <flv:FlowListView.FlowColumnTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical" Padding="0,5,0,22">
+                            <Image Source="{Binding HighThumbnailUrl}" HorizontalOptions="FillAndExpand" HeightRequest="180" Aspect="AspectFill"/>
+                            <Label Text="{Binding Title}" TextColor="Black" FontSize="18" FontFamily="RobotoRegular" MaxLines="2" LineBreakMode="TailTruncation" Padding="15,0"/>
+                            <StackLayout Orientation="Horizontal" Padding="15,0">
+                                <Label Text="{Binding ChannelTitle, StringFormat='{0:n0} * '}"
+                                       TextColor="#0D47A1"
+                                       FontSize="14" FontFamily="RobotoRegular"/>
+                                <Label Text="{Binding ViewCount, StringFormat='Views {0:n0} * '}"
+                                       TextColor="#2196F3"
+                                       FontSize="14" FontFamily="RobotoRegular"/>
+                                <Label Text="{Binding PublishedAt, Converter={StaticResource relativeDateTimeConvertor}}"
+                                       TextColor="#0D47A1"
+                                       FontSize="14" FontFamily="RobotoRegular"/>
+                            </StackLayout>
+                            <!--<BoxView HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="FillAndExpand"/>-->
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:Reference videosListView}, Path=BindingContext.PlayVideoCommand}" CommandParameter="{Binding .}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </DataTemplate>
+                </flv:FlowListView.FlowColumnTemplate>
+            </flv:FlowListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
